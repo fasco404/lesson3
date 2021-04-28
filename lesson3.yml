@@ -1,0 +1,11 @@
+---
+- hosts: prodgeek
+  become: true
+  become_user: root
+  vars_files:
+    - roles/wordpress/vars/wordpress.yml 
+  roles:
+    - { role: geerlingguy.nginx } 
+    - { role: geerlingguy.php }
+    - { role: geerlingguy.mysql }
+    - { role: wordpress }
